@@ -2,25 +2,15 @@ from flask import Flask,render_template
 
 app = Flask(__name__)
 
-
-#Filterss
-#upper
-#lower
-#safe
-#striptags
 @app.route('/')
 def index():
-    first_name = "Alisher"
-    stuf = "This is bold tag <strong>Bold</strong>"
-    favorite_pizza = ["Pepperoni","Cheeze","shfisfu","123","1232114"]
-    return render_template('index.html',first_name=first_name,
-    stuf = stuf,
-    favorite_pizza=favorite_pizza
-    )
+    return render_template('index.html')
 
 @app.route('/user/<name>')
 def user(name):
-    return render_template("user.html",user_name=name)
+    color = "#addabc"
+    user_colors = ["#adb23","#346bdd","#dcd534","#ad523","#90876"]
+    return render_template("user.html",user_name=name,user_colors=user_colors,color=color)
 
 @app.errorhandler(404)
 def page_not_found(e):
